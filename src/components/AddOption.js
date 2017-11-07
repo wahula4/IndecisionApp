@@ -1,15 +1,11 @@
 import React from 'react';
 
 export default class AddOption extends React.Component {
-    constructor(props) {
-        super(props)
-        // passed down from parent
-        this.handleAddOption = this.handleAddOption.bind(this);
-        this.state = {
-            error: undefined
-        }
-    }
-    handleAddOption(event) {
+    // class properties syntax
+    state = {
+        error: undefined
+    };
+    handleAddOption = (event) => {
         event.preventDefault();
 
         const option = event.target.elements.option.value.trim();
@@ -24,7 +20,7 @@ export default class AddOption extends React.Component {
         if (!error) {
             event.target.elements.option.value = '';
         }
-    }
+    };
     render() {
         return (
             // if error is truthy then display the error using logical AND operator
